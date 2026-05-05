@@ -20,3 +20,14 @@ rclone-restart() {
   systemctl --user restart googledrive-rclone.service
   rclone-status
 }
+
+rclone-selfupdate() {
+  echo "Stoping service"
+  systemctl --user stop googledrive-rclone.service
+  
+  echo "Self update"
+  sudo rclone selfupdate
+  
+  echo "Starting service"
+  rclone-start
+}
