@@ -38,6 +38,7 @@ declare -A BACKUPS=(
     [ssh]="-C|$HOME/.ssh|*"
     [config]="-C|$HOME/.config|systemd/user/*.service:systemd/user/*.timer:plasma*:kglobalshortcutsrc:kdeglobals:kwin*"
     [local]="-C|$HOME/.local|share/plasma*"
+    [kube]="-C|$HOME/.kube|config:*.config"
 )
 
 # ============================================================================
