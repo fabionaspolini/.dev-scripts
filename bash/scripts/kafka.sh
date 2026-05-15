@@ -1,3 +1,7 @@
+alias kafka-start="docker compose -f ~/sources/infra/kafka/docker-compose.yml start"
+alias kafka-stop="docker compose -f ~/sources/infra/kafka/docker-compose.yml stop"
+alias kafka-stats="docker compose -f ~/sources/infra/kafka/docker-compose.yml stats"
+
 #. "$(dirname -- "${BASH_SOURCE[0]}")/utils/bash-utils.sh"
 #
 ## File functions to ignore when listing available commands
@@ -42,10 +46,10 @@
 #
 #
 
-kafka-start() {
-  docker compose -f ~/sources/infra/kafka/docker-compose.yml start
-}
-
-kafka-stop() {
-  docker compose -f ~/sources/infra/kafka/docker-compose.yml stop
-}
+#kafka-start() {
+#  docker compose -f ~/sources/infra/kafka/docker-compose.yml start
+#}
+#
+#kafka-stop() {
+#  docker compose -f ~/sources/infra/kafka/docker-compose.yml stop
+#}
