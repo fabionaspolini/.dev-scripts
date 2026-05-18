@@ -17,7 +17,6 @@ alias rclone-resync="rclone bisync \
   --resync \
   --transfers 8 \
   --fast-list \
-  --track-renames \
   --log-level ERROR \
   --log-file ~/.local/state/rclone/googledrive.log"
 
