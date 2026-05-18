@@ -2,7 +2,7 @@
 # Manual sync
 #
 
-alias rclone-bisync="rclone bisync \
+alias rclone-sync="rclone bisync \
   googledrive: ~/GoogleDrive/ \
   --progress \
   --transfers 8 \
