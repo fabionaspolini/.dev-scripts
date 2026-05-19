@@ -10,19 +10,20 @@ alias gdrive-sync="rclone bisync \
   --track-renames \
   --resilient \
   --log-level ERROR \
-  --log-file ~/.local/state/rclone/googledrive-bisync.log"
+  --log-file ~/.local/state/rclone/gdrive-bisync.log"
   
 alias gdrive-resync="rclone bisync \
   googledrive: ~/GoogleDrive/ \
   --progress \
   --resync \
+  --resync-mode local \
   --transfers 8 \
   --fast-list \
   --log-level ERROR \
-  --log-file ~/.local/state/rclone/googledrive-bisync.log"
+  --log-file ~/.local/state/rclone/gdrive-bisync.log"
 
-alias gdrive-show-logs="tail -n 20 ~/.local/state/rclone/googledrive-bisync.log"
-alias gdrive-open-logs="kate ~/.local/state/rclone/googledrive-bisync.log"
+alias gdrive-show-logs="tail -n 20 ~/.local/state/rclone/gdrive-bisync.log"
+alias gdrive-open-logs="kate ~/.local/state/rclone/gdrive-bisync.log"
 
 #
 # Management commands
