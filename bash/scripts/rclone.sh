@@ -1,8 +1,8 @@
 #
-# Manual sync
+# Manual sync - Google Drive
 #
 
-alias rclone-sync="rclone bisync \
+alias gdrive-sync="rclone bisync \
   googledrive: ~/GoogleDrive/ \
   --progress \
   --transfers 8 \
@@ -10,24 +10,27 @@ alias rclone-sync="rclone bisync \
   --track-renames \
   --resilient \
   --log-level ERROR \
-  --log-file ~/.local/state/rclone/googledrive.log"
+  --log-file ~/.local/state/rclone/googledrive-bisync.log"
   
-alias rclone-resync="rclone bisync \
+alias gdrive-resync="rclone bisync \
   googledrive: ~/GoogleDrive/ \
   --progress \
   --resync \
   --transfers 8 \
   --fast-list \
   --log-level ERROR \
-  --log-file ~/.local/state/rclone/googledrive.log"
+  --log-file ~/.local/state/rclone/googledrive-bisync.log"
+
+alias gdrive-show-logs="tail -n 20 ~/.local/state/rclone/googledrive-bisync.log"
+alias gdrive-open-logs="kate ~/.local/state/rclone/googledrive-bisync.log"
 
 #
 # Management commands
 #
 
 alias rclone-status="systemctl --user status googledrive-rclone.service --no-pager"
-alias rclone-show-service-logs="tail -n 20 ~/.local/state/rclone/googledrive.log"
-alias rclone-open-service-logs="kate ~/.local/state/rclone/googledrive.log"
+#alias rclone-show-service-logs="tail -n 20 ~/.local/state/rclone/googledrive.log"
+#alias rclone-open-service-logs="kate ~/.local/state/rclone/googledrive.log"
 
 rclone-selfupdate() {
 #  echo "Stoping service"
