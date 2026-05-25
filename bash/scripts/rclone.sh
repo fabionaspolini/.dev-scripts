@@ -12,15 +12,15 @@ alias gdrive-sync="rclone bisync \
   --log-level ERROR \
   --log-file ~/.local/state/rclone/gdrive-bisync.log"
   
-alias gdrive-resync="rclone bisync \
-  googledrive: ~/GoogleDrive/ \
-  --progress \
-  --resync \
-  --resync-mode local \
-  --transfers 8 \
-  --fast-list \
-  --log-level ERROR \
-  --log-file ~/.local/state/rclone/gdrive-bisync.log"
+#alias gdrive-resync="rclone bisync \
+#  googledrive: ~/GoogleDrive/ \
+#  --progress \
+#  --resync \
+#  --resync-mode local \
+#  --transfers 8 \
+#  --fast-list \
+#  --log-level ERROR \
+#  --log-file ~/.local/state/rclone/gdrive-bisync.log"
 
 alias gdrive-show-logs="tail -n 20 ~/.local/state/rclone/gdrive-bisync.log"
 alias gdrive-open-logs="kate ~/.local/state/rclone/gdrive-bisync.log"
