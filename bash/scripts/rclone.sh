@@ -12,6 +12,15 @@ alias gdrive-sync="rclone bisync \
   --log-file ~/.local/state/rclone/gdrive-bisync.log"
 #  --track-renames \
 
+alias gdrive-sync-dry-run="rclone bisync \
+  googledrive: ~/GoogleDrive/ \
+  --progress \
+  --transfers 8 \
+  --fast-list \
+  --resilient \
+  --dry-run \
+  --verbose"
+
 #alias gdrive-resync="rclone bisync \
 #  googledrive: ~/GoogleDrive/ \
 #  --progress \
