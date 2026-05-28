@@ -32,13 +32,13 @@ NC='\033[0m' # Sem cor
 
 # Adicione mais backups conforme necessário:
 declare -A BACKUPS=(
-    [bashrc.d]="-C|$HOME/.bashrc.d|*.*"
-#    [qwen]="-C|$HOME/.qwen|agents:skills:settings.json"
-    [qwen]="-C|$HOME/.qwen|*"
-    [ssh]="-C|$HOME/.ssh|*"
-    [config]="-C|$HOME/.config|systemd/user/*.service:systemd/user/*.timer:systemd/user/disabled-services/:plasma*:kglobalshortcutsrc:kdeglobals:kwin*"
-    [local]="-C|$HOME/.local|share/plasma*"
-    [kube]="-C|$HOME/.kube|config:*.config"
+    [home.bashrc.d]="-C|$HOME/.bashrc.d|*.*"
+#    [home.qwen]="-C|$HOME/.qwen|agents:skills:settings.json"
+    [home.qwen]="-C|$HOME/.qwen|*"
+    [home.ssh]="-C|$HOME/.ssh|*"
+    [home.config]="-C|$HOME/.config|systemd/user/*.service:systemd/user/*.timer:systemd/user/disabled-services/:plasma*:kglobalshortcutsrc:kdeglobals:kwin*"
+    [home.local]="-C|$HOME/.local|share/plasma*"
+    [home.kube]="-C|$HOME/.kube|config:*.config"
 )
 
 # ============================================================================
