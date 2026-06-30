@@ -36,7 +36,7 @@ declare -A BACKUPS=(
 #    [home.qwen]="-C|$HOME/.qwen|agents:skills:settings.json"
     [home.qwen]="-C|$HOME/.qwen|*"
     [home.ssh]="-C|$HOME/.ssh|*"
-    [home.config]="-C|$HOME/.config|systemd/user/*.service:systemd/user/*.timer:systemd/user/disabled-services/:plasma*:kglobalshortcutsrc:kdeglobals:kwin*"
+    [home.config]="-C|$HOME/.config|systemd/user/*.service:systemd/user/*.timer:systemd/user/disabled-services/:plasma*:kglobalshortcutsrc:kdeglobals:kwin*:wireplumber"
     [home.local]="-C|$HOME/.local|share/plasma*"
     [home.kube]="-C|$HOME/.kube|config:*.config"
 )
