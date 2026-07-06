@@ -8,7 +8,6 @@ scripts=(
     "clear-dev-folders.sh"
     "checkout-main-and-update.sh"
     "delete-merged-branchs.sh"
-#    "kafka.sh"
     "refresh-envs-so.sh"
 )
 
