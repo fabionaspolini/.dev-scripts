@@ -7,7 +7,7 @@ scripts=(
     "backup.sh"
     "clear-dev-folders.sh"
     "checkout-main-and-update.sh"
-    "delete-merged-branchs.sh"
+    "git-delete-merged-branchs.sh"
     "refresh-envs-so.sh"
 )
 
