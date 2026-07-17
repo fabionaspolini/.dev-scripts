@@ -1,3 +1,5 @@
+alias fix-keyboard-ibus-errors="ibus restart"
+
 upgrade-all-packages() {
     echo "Upgrading all packages..."
 
