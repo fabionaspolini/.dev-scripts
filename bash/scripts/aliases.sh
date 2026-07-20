@@ -6,6 +6,7 @@
 scripts=(
     "backup.sh"
     "clear-dev-folders.sh"
+    "dotnet-install.sh"
     "git-checkout-main-and-update.sh"
     "git-delete-merged-branchs.sh"
     "refresh-envs-so.sh"
