@@ -5,7 +5,7 @@ DEV_TOOLS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 
 # Register autocomplete for kafka.sh
 . "$DEV_TOOLS_DIR"/scripts/kafka.sh
-. "$DEV_TOOLS_DIR"/scripts/rclone.sh
+. "$DEV_TOOLS_DIR"/scripts/gdrive.sh
 
 #_KAFKA_SOURCED_FOR_INIT=1 . "$DEV_TOOLS_DIR"/scripts/kafka.sh
 #register_kafka_autocomplete
