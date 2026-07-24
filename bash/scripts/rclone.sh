@@ -45,10 +45,10 @@ alias rclone-status="systemctl --user status googledrive-rclone.service --no-pag
 rclone-selfupdate() {
 #  echo "Stoping service"
 #  systemctl --user stop googledrive-rclone.service
-  
+
   echo "Self update"
   sudo rclone selfupdate
-  
+
 #  echo "Starting service"
 #  rclone-start
 }
