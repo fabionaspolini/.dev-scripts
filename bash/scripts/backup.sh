@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script de backup genérico para compactar múltiplos conjuntos de arquivos
 # Permite definir facilmente novos backups na estrutura de dados BACKUPS

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # Cria aliases para scripts utilitários
 # Alias criados dinamicamente a partir dos scripts disponíveis
 

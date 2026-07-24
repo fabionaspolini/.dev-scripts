@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script para fazer checkout na branch main e atualizar com git pull --prune
 # Uso: ./checkout-main-and-update.sh [main-branch-name]

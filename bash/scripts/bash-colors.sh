@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Este script demonstra as combinações de cores de fundo e texto no terminal usando códigos ANSI.
 # Ele itera sobre os códigos de fundo (background) de 40 a 47 e de texto (foreground) de 30 a 37,

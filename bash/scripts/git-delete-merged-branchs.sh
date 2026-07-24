@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Script para excluir branches já mescladas na main
 # Uso: ./delete_merged_branches.sh [opções]

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 source "$CURRENT_FOLDER/../../bash/scripts/utils/dialogs.sh"

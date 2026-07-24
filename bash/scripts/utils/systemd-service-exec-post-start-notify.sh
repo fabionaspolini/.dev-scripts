@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 #
 # Script de callback para executar quando o serviço do systemd concluir (com sucesso ou erro).
