@@ -1,6 +1,6 @@
 DEV_TOOLS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
 
-. "$DEV_TOOLS_DIR"/aliases/init.sh
+. "$DEV_TOOLS_DIR"/profile-init/init.sh
 . "$DEV_TOOLS_DIR"/scripts/init.sh
 
 # Register autocomplete for kafka.sh
