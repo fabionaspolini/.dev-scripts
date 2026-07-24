@@ -1,16 +1,6 @@
 #!/usr/bin/env bash
-# Cria aliases para scripts utilitários
-# Alias criados dinamicamente a partir dos scripts disponíveis
 
-# Scripts com os quais criar aliases (editar esta lista para adicionar novos)
-scripts=(
-    "backup.sh"
-    "clear-dev-folders.sh"
-    "dotnet-install.sh"
-    "git-checkout-main-and-update.sh"
-    "git-delete-merged-branchs.sh"
-    "refresh-envs-so.sh"
-)
+# Create alias for each script in the current folder, excluding this file itself.
 
 CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 
@@ -25,9 +15,10 @@ _create_alias() {
     fi
 }
 
-# Criar aliases dinamicamente
-for script in "${scripts[@]}"; do
-    _create_alias "$script"
+for script in "$CURRENT_FOLDER"/*.sh; do
+  if [[ "$script" != "$CURRENT_FOLDER/aliases.sh" ]]; then
+    _create_alias "${script##*/}"
+  fi
 done
 
 # Limpeza
