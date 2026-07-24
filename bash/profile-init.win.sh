@@ -2,7 +2,7 @@
 
 CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 
-. "$CURRENT_FOLDER"/profile_init.sh
-. "$CURRENT_FOLDER"/wsl_aliases.win.sh
+. "$CURRENT_FOLDER"/profile-init.sh
+. "$CURRENT_FOLDER"/wsl-aliases.win.sh
 
 unset CURRENT_FOLDER

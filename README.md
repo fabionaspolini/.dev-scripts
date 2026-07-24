@@ -27,7 +27,7 @@ git clone https://github.com/fabionaspolini/.dev-tools.git
 Criar arquivo `~/.bashrc.d/dev-tools-init.sh` e adicionar:
 
 ```bash
-. ~/.dev-tools/bash/.profile_init.sh
+. ~/.dev-tools/bash/.profile-init.sh
 ```
 
 **Windows**:
@@ -35,7 +35,7 @@ Criar arquivo `~/.bashrc.d/dev-tools-init.sh` e adicionar:
 Editar arquivo `~/.bash_profile` e adicionar:
 
 ```bash
-. ~/.dev-tools/bash/.profile_init.win.sh
+. ~/.dev-tools/bash/.profile-init.win.sh
 ```
 
 ### cmd
