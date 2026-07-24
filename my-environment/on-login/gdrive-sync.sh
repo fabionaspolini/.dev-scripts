@@ -1,5 +1,9 @@
 #!/bin/bash
 
+CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
+source "$CURRENT_FOLDER/../../bash/scripts/utils/dialogs.sh"
+unset CURRENT_FOLDER
+
 echo "$(date) Inicializando"
 
 
@@ -15,6 +19,8 @@ fi
 
 echo "$(date) gdrive-sync"
 gdrive-sync
+if [ $? -ne 0 ]; then
+    show_error_dialog --title "gdrive-sync init" --msg "Erro ao executar sincronização com Google Drive!"
+fi
 
-# Pause for console check
-echo "$(date) Execution completed. Press [Enter] to close..."
+echo "$(date) Execution completed."
