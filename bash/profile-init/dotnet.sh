@@ -1,22 +1,20 @@
 alias dotnet-clear-nuget-cache="dotnet nuget locals --clear all"
 
-# Path
-if [ -d ~/.dotnet ]; then
-    export PATH="$PATH:~/.dotnet"
+# .net sdk environments
+if [ -d /usr/share/dotnet ]; then
+    export PATH="$PATH:/usr/share/dotnet"
+    export DOTNET_ROOT=/usr/share/dotnet
+elif [ -d /lib64/dotnet ]; then
+    # legacy my old machine
+    export PATH="$PATH:/lib64/dotnet"
+    export DOTNET_ROOT=/lib64/dotnet
 fi
 
 if [ -d ~/.dotnet/tools ]; then
     export PATH="$PATH:~/.dotnet/tools"
 fi
 
-# .net
 export DOTNET_CLI_UI_LANGUAGE=en
-
-if [ -d /lib64/dotnet ]; then
-    export DOTNET_ROOT=/lib64/dotnet
-else
-    export DOTNET_ROOT=~/.dotnet
-fi
 
 # Android workload build
 export AcceptAndroidSDKLicenses=True
