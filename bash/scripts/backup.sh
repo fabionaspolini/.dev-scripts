@@ -5,7 +5,7 @@
 
 
 # Configurações globais
-DESTINO="$HOME/GoogleDrive/Backups/Automatic"
+DESTINO="$HOME/GoogleDrive/Backups/Automatic/$(hostname)"
 
 # Cores para mensagens
 VERDE='\033[0;32m'
