@@ -1,6 +1,6 @@
 alias dev-scripts-update="git -C ~/.dev-scripts pull"
 
-show-envs() {
+show-paths() {
     local pattern="${1:-}"
     local entries
 
