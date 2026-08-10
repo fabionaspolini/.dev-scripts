@@ -3,7 +3,7 @@ alias dotnet-clear-nuget-cache="dotnet nuget locals --clear all"
 # .net sdk environments
 if [ -d /usr/share/dotnet ]; then
     export PATH="$PATH:/usr/share/dotnet"
-    export DOTNET_ROOT=/usr/share/dotnet
+    export DOTNET_ROOT="/usr/share/dotnet"
 fi
 
 if [ -d ~/.dotnet/tools ]; then
