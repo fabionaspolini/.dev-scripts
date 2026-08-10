@@ -18,6 +18,7 @@ EXPLICIT_FILES=(
     "/etc/profile"
     "/etc/bashrc"
     "/etc/environment"
+    "/etc/sudoers" # needs sudo to read
 
     # User / Terminal Session
     "$HOME/.bash_profile"
@@ -27,17 +28,26 @@ EXPLICIT_FILES=(
 
     # ZSH (Common alternative shell)
     "$HOME/.zshrc"
-    "$HOME/.zprofile"
+    "$HOME/.zprofile",
 )
 
 # --- 2. Directories to scan (Filtering ONLY by script extensions) ---
 DIRECTORIES=(
     "/etc/profile.d"
     "/etc/environment.d"                  # Systemd global env
+    "/etc/sudoers.d"                      # needs sudo to read
     "$HOME/.bashrc.d"                     # Terminal session env
     "$HOME/.config/environment.d"         # Systemd user env
     "$HOME/.config/plasma-workspace/env"  # KDE Plasma startup scripts
     "$HOME/.dev-scripts/bash/profile-init"                  # My customizations and scripts
+
+    "$HOME/.config/environment.d"
+    "/usr/lib/environment.d"
+    "/usr/lib64/environment.d"
+    "/usr/share/plasma"
+    "/etc/xdg"
+    # "/etc/xdg/plasma-workspace/env"
+
 )
 
 FOUND=0
