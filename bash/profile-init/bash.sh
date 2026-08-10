@@ -1,4 +1,14 @@
 alias dev-scripts-update="git -C ~/.dev-scripts pull"
 
-alias show-envs='echo "$PATH" | tr ":" "\n" | sort' # sort -u para remover duplicados
+show-envs() {
+    local pattern="${1:-}"
+    local entries
 
+    entries=$(printf '%s\n' "$PATH" | tr ':' '\n' | sort)
+
+    if [ -n "$pattern" ]; then
+        printf '%s\n' "$entries" | grep -i -- "$pattern"
+    else
+        printf '%s\n' "$entries"
+    fi
+}
