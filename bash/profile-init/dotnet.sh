@@ -4,10 +4,6 @@ alias dotnet-clear-nuget-cache="dotnet nuget locals --clear all"
 if [ -d /usr/share/dotnet ]; then
     export PATH="$PATH:/usr/share/dotnet"
     export DOTNET_ROOT=/usr/share/dotnet
-elif [ -d /lib64/dotnet ]; then
-    # legacy my old machine
-    export PATH="$PATH:/lib64/dotnet"
-    export DOTNET_ROOT=/lib64/dotnet
 fi
 
 if [ -d ~/.dotnet/tools ]; then
