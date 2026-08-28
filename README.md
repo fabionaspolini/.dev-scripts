@@ -6,6 +6,7 @@ My development environment settings and scripts.
   - [1. Clone the repository into your user directory:](#1-clone-the-repository-into-your-user-directory)
   - [2. Run `profile-init.sh` when your terminal starts.](#2-run-profile-initsh-when-your-terminal-starts)
     - [Bash](#bash)
+- [System-triggers](#system-triggers)
 - [Settings](#settings)
 
 
@@ -29,6 +30,11 @@ Create the file `~/.bashrc.d/dev-scripts-init.sh` and add `. ~/.dev-scripts/prof
 ```bash
 echo ". ~/.dev-scripts/profile-init.sh" >> ~/.bashrc.d/dev-scripts-init.sh
 ```
+
+## System-triggers
+
+- **on-login**: Executa automaticamente após login, com toda interface gráfica já carregada.
+- **on-login/before-desktop-load**: Eles são executados antes de a área de trabalho carregar completamente, exatamente para definir variáveis de ambiente (export MINHA_VAR=valor) que todos os programas da sua sessão gráfica precisarão herdar.
 
 ## Settings
 
