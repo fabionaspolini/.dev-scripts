@@ -1,32 +1,33 @@
 # .dev-scripts
 
-Minhas configurações e scripts para ambiente de desenvolvimento.
+My development environment settings and scripts.
 
-- [Como usar?](#como-usar)
-  - [1. Clonar o repositório em sua pasta de usuário:](#1-clonar-o-repositório-em-sua-pasta-de-usuário)
-  - [2. Executar `profile-init.sh` na inicialização do seu terminal.](#2-executar-profile-initsh-na-inicialização-do-seu-terminal)
-    - [bash](#bash)
+- [How to use?](#how-to-use)
+  - [1. Clone the repository into your user directory:](#1-clone-the-repository-into-your-user-directory)
+  - [2. Run `profile-init.sh` when your terminal starts.](#2-run-profile-initsh-when-your-terminal-starts)
+    - [Bash](#bash)
 - [Settings](#settings)
 
-## Como usar?
 
-### 1. Clonar o repositório em sua pasta de usuário:
+## How to use?
+
+### 1. Clone the repository into your user directory:
 
 ```bash
 cd ~
 git clone https://github.com/fabionaspolini/.dev-scripts.git
 ```
 
-### 2. Executar `profile-init.sh` na inicialização do seu terminal.
+### 2. Run `profile-init.sh` when your terminal starts.
 
-#### bash
+#### Bash
 
-Criar arquivo `~/.bashrc.d/dev-scripts-init.sh` e adicionar `. ~/.dev-scripts/bash/profile-init.sh`.
+Create the file `~/.bashrc.d/dev-scripts-init.sh` and add `. ~/.dev-scripts/profile-init.sh`.
 
 **Quick setup**
 
 ```bash
-echo ". ~/.dev-scripts/bash/profile-init.sh" >> ~/.bashrc.d/dev-scripts-init.sh
+echo ". ~/.dev-scripts/profile-init.sh" >> ~/.bashrc.d/dev-scripts-init.sh
 ```
 
 ## Settings
