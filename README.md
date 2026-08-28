@@ -33,8 +33,12 @@ echo ". ~/.dev-scripts/profile-init.sh" >> ~/.bashrc.d/dev-scripts-init.sh
 
 ## System-triggers
 
-- **on-login**: Executa automaticamente após login, com toda interface gráfica já carregada.
-- **on-login/before-desktop-load**: Eles são executados antes de a área de trabalho carregar completamente, exatamente para definir variáveis de ambiente (export MINHA_VAR=valor) que todos os programas da sua sessão gráfica precisarão herdar.
+- **on-login**: Execute after successfully logging in, when the whole graphic interface is loaded. Use the **Autostart** feature from your graphic interface to link these scripts.
+- **pre-login**: Execute after login, but before loading the desktop session. Environment variables defined here are applied to all graphical interface apps.
+  - Create file in folder `~/.config/plasma-workspace/env/` to link for each script from here folder.
+    ```bash
+    echo "source $HOME/.dev-scripts/system-triggers/session/pre-login/clear-ibus.sh" >> ~/.config/plasma-workspace/env/clear-ibus.sh
+    ```
 
 ## Settings
 
