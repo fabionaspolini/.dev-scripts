@@ -6,8 +6,8 @@ if [ -d /usr/share/dotnet ]; then
     export DOTNET_ROOT="/usr/share/dotnet"
 fi
 
-if [ -d ~/.dotnet/tools ]; then
-    export PATH="$PATH:~/.dotnet/tools"
+if [ -d $HOME/.dotnet/tools ]; then
+    export PATH="$PATH:$HOME/.dotnet/tools"
 fi
 
 export DOTNET_CLI_UI_LANGUAGE=en
