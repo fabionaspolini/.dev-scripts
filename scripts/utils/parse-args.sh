@@ -6,6 +6,21 @@ _PARSE_ARGS_SH_LOADED=true
 
 # Generic helper to parse arguments
 # Usage: parse_args "$@"
+# That's parse the arguments and set variables in the caller's scope.
+# Example:
+# sample_function() {
+#     local title=""
+#     local msg=""
+#     parse_args "$@"
+#
+#     # Simple validation of required fields
+#     if [[ -z "$title" || -z "$msg" ]]; then
+#         echo "Error: --title and --msg are required." >&2
+#         return 1
+#     fi
+#
+#     # Your function implementation
+# }
 parse_args() {
     while [[ $# -gt 0 ]]; do
         case "$1" in
