@@ -17,14 +17,14 @@ done
 # 2. Validate directory and Git repository
 if [ ! -d "$ZED_DIR" ]; then
     echo "❌ Directory $ZED_DIR not found."
-    return 1 2>/dev/null || exit 1
+    exit 1
 fi
 
 cd "$ZED_DIR"
 
 if [ ! -d ".git" ]; then
     echo "❌ Directory $ZED_DIR is not a Git repository. Initialize it first."
-    return 1 2>/dev/null || exit 1
+    exit 1
 fi
 
 echo "🔄 Fetching remote changes..."
@@ -48,11 +48,11 @@ if [ $PULL_STATUS -ne 0 ]; then
         git reset --hard origin/main
         git clean -fd
         echo "✅ Reset to remote state successfully."
-        return 0 2>/dev/null || exit 0
+        exit 0
     else
         echo "❌ Git pull failed due to conflicts or local changes."
         echo "👉 You must resolve this problem manually inside $ZED_DIR."
-        return 1 2>/dev/null || exit 1
+        exit 1
     fi
 fi
 
