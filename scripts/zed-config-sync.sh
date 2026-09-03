@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+set -e
 
 ZED_DIR="$HOME/.config/zed"
 ACTION=""
@@ -16,14 +17,14 @@ done
 # 2. Validate directory and Git repository
 if [ ! -d "$ZED_DIR" ]; then
     echo "❌ Directory $ZED_DIR not found."
-    exit 1
+    return 1 2>/dev/null || exit 1
 fi
 
 cd "$ZED_DIR"
 
 if [ ! -d ".git" ]; then
     echo "❌ Directory $ZED_DIR is not a Git repository. Initialize it first."
-    exit 1
+    return 1 2>/dev/null || exit 1
 fi
 
 echo "🔄 Fetching remote changes..."
@@ -47,11 +48,11 @@ if [ $PULL_STATUS -ne 0 ]; then
         git reset --hard origin/main
         git clean -fd
         echo "✅ Reset to remote state successfully."
-        exit 0
+        return 0 2>/dev/null || exit 0
     else
         echo "❌ Git pull failed due to conflicts or local changes."
         echo "👉 You must resolve this problem manually inside $ZED_DIR."
-        exit 1
+        return 1 2>/dev/null || exit 1
     fi
 fi
 
