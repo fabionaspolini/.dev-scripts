@@ -3,7 +3,7 @@ set -e
 
 ZED_DIR="$HOME/.config/zed"
 ACTION=""
-FORCE=false
+FORCE=false # If erro on git pull, local changes are discarded and reset to remote state
 
 # 1. Parse command-line arguments
 for arg in "$@"; do
@@ -33,7 +33,7 @@ git fetch origin main
 echo "🔄 Pulling latest changes (rebase)..."
 # Capture output and exit code to handle errors gracefully
 set +e
-PULL_OUTPUT=$(git pull --rebase origin main 2>&1)
+PULL_OUTPUT=$(git pull --ff origin main 2>&1)
 PULL_STATUS=$?
 set -e
 
@@ -44,7 +44,7 @@ if [ $PULL_STATUS -ne 0 ]; then
 
     if [ "$FORCE" = true ]; then
         echo "⚠️ '--force' flag provided. Aborting rebase and discarding local changes..."
-        git rebase --abort 2>/dev/null || true
+        git merge --abort 2>/dev/null || true
         git reset --hard origin/main
         git clean -fd
         echo "✅ Reset to remote state successfully."
