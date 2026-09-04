@@ -30,7 +30,7 @@ fi
 echo "🔄 Fetching remote changes..."
 git fetch origin main
 
-echo "🔄 Pulling latest changes (rebase)..."
+echo "🔄 Pulling latest changes (--ff)..."
 # Capture output and exit code to handle errors gracefully
 set +e
 PULL_OUTPUT=$(git pull --ff origin main 2>&1)
@@ -43,7 +43,7 @@ if [ $PULL_STATUS -ne 0 ]; then
     echo -e "\n$PULL_OUTPUT\n"
 
     if [ "$FORCE" = true ]; then
-        echo "⚠️ '--force' flag provided. Aborting rebase and discarding local changes..."
+        echo "⚠️ '--force' flag provided. Aborting pull and discarding local changes..."
         git merge --abort 2>/dev/null || true
         git reset --hard origin/main
         git clean -fd
