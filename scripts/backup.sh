@@ -34,6 +34,7 @@ NC='\033[0m' # Sem cor
 declare -A BACKUPS=(
     [home-user]="-C|$HOME|.bash_profile:.bashrc:.gitconfig:.npmrc:.zshrc:.profile"
     [home.bashrc.d]="-C|$HOME/.bashrc.d|*.*"
+    [home.claude]="-C|$HOME/.claude|*"
 #    [home.qwen]="-C|$HOME/.qwen|agents:skills:settings.json"
     [home.qwen]="-C|$HOME/.qwen|*"
     [home.ssh]="-C|$HOME/.ssh|*"
@@ -232,46 +233,46 @@ executar_backup() {
 
 main() {
     exibir_secao "INICIANDO BACKUPS"
-    
+
     # Validar diretório de destino
     if ! criar_diretorio_destino; then
         exibir_erro "Não foi possível criar o diretório de destino"
         return 1
     fi
-    
+
     # Verificar se há backups configurados
     if [ ${#BACKUPS[@]} -eq 0 ]; then
         exibir_erro "Nenhum backup configurado"
         return 1
     fi
-    
+
     exibir_msg "Total de backups a executar: ${#BACKUPS[@]}"
-    
+
     local total_backups=${#BACKUPS[@]}
     local backups_sucesso=0
     local backups_falha=0
-    
+
     # Executar cada backup
     for nome_backup in "${!BACKUPS[@]}"; do
         exibir_secao "BACKUP: $nome_backup"
-        
+
         if executar_backup "$nome_backup" "${BACKUPS[$nome_backup]}"; then
             ((backups_sucesso++))
         else
             ((backups_falha++))
         fi
-        
+
         echo ""
     done
-    
+
     # Resumo final
     exibir_secao "RESUMO FINAL"
     exibir_msg "Total: $total_backups | Sucesso: $backups_sucesso | Falha: $backups_falha"
-    
+
     if [ $backups_falha -gt 0 ]; then
         return 1
     fi
-    
+
     return 0
 }
 
