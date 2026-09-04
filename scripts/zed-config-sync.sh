@@ -26,7 +26,7 @@ if [ ! -d ".git" ]; then
     echo "❌ Directory $ZED_DIR is not a Git repository. Initialize it first."
     exit 1
 fi
-aa
+
 echo "🔄 Fetching remote changes..."
 git fetch origin main
 
