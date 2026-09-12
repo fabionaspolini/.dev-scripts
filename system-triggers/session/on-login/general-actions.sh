@@ -12,10 +12,11 @@ CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 source "$CURRENT_FOLDER/../../../scripts/utils/dialogs.sh"
 unset CURRENT_FOLDER
 
-echo "gdrive-sync"
-gdrive-sync
+# Update Konsole profile to Light or Dark based on system theme
+echo "set-konsole-profile"
+set-konsole-profile
 if [ $? -ne 0 ]; then
-    show_error_dialog --title "Autostart script error: gdrive-sync" --msg "Failed to synchronize Google Drive!"
+    show_error_dialog --title "Autostart script error: general-actions" --msg "Failed to update Konsole profile with system theme!"
 fi
 
 echo "Execution completed."
