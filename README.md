@@ -1,6 +1,6 @@
 # .dev-scripts
 
-My development environment settings and scripts.
+My development environment settings and scripts for **Fedora KDE**.
 
 - [How to use?](#how-to-use)
   - [1. Clone the repository into your user directory:](#1-clone-the-repository-into-your-user-directory)
