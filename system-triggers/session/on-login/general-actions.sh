@@ -17,6 +17,7 @@ echo "set-konsole-profile"
 set-konsole-profile
 if [ $? -ne 0 ]; then
     show_error_dialog --title "Autostart script error: general-actions" --msg "Failed to update Konsole profile with system theme!"
+    exit 1
 fi
 
 echo "Execution completed."

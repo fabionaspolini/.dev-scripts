@@ -16,6 +16,7 @@ echo "gdrive-sync"
 gdrive-sync
 if [ $? -ne 0 ]; then
     show_error_dialog --title "Autostart script error: gdrive-sync" --msg "Failed to synchronize Google Drive!"
+    exit 1
 fi
 
 echo "Execution completed."
