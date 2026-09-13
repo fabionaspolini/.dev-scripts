@@ -26,6 +26,7 @@ if [[ "$snapshot" == "true" ]]; then
         --type pre \
         --description "Pre-upgrade packages automatic" \
         --cleanup-algorithm number
+    echo "Snapshot created."
 fi
 
 echo "Upgrading all packages..."
