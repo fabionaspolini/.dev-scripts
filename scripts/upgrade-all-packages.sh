@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 source "$CURRENT_FOLDER/utils/parse-args.sh"
 unset CURRENT_FOLDER
