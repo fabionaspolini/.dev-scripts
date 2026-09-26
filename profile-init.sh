@@ -1,4 +1,8 @@
-DEV_TOOLS_DIR="$(dirname -- "${BASH_SOURCE[0]}")"
+if [[ -n "${ZSH_VERSION:-}" ]]; then
+  DEV_TOOLS_DIR="${${(%):-%x}:a:h}"
+else
+  DEV_TOOLS_DIR="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+fi
 
 . "$DEV_TOOLS_DIR"/profile-init/init.sh
 . "$DEV_TOOLS_DIR"/scripts/init.sh

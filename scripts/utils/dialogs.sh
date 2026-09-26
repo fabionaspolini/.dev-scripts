@@ -2,7 +2,11 @@
 [[ -n "${_DIALOGS_SH_LOADED:-}" ]] && return 0
 _DIALOGS_SH_LOADED=true
 
-CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
+if [[ -n "${ZSH_VERSION:-}" ]]; then
+  CURRENT_FOLDER="${${(%):-%x}:a:h}"
+else
+  CURRENT_FOLDER="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+fi
 source "$CURRENT_FOLDER/parse-args.sh"
 unset CURRENT_FOLDER
 

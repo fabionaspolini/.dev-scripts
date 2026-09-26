@@ -1,7 +1,14 @@
-#!/usr/bin/env bash
+#!/usr/bin/env zsh
 
+#
 # Create alias for each script in the current folder, excluding this file itself.
-CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
+#
+
+if [[ -n "${ZSH_VERSION:-}" ]]; then
+  eval 'CURRENT_FOLDER="${${(%):-%x}:a:h}"'
+else
+  CURRENT_FOLDER="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+fi
 
 # Função para criar alias a partir de um script
 _create_alias() {
