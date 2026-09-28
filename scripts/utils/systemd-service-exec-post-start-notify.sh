@@ -14,7 +14,7 @@ if [ "$SERVICE_RESULT" = "success" ]; then
     notify-send --urgency=normal --icon=dialog-information --app-name=systemd \
     '$SERVICE_NAME completed' \
     'The task finished successfully.'"
-  
+
     exit 0 # Se foi sucesso, não faz nada e encerra
 fi
 

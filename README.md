@@ -46,3 +46,7 @@ echo "source $HOME/.dev-scripts/system-triggers/session/pre-login/clear-ibus.sh"
 ## Settings
 
 - [vscode](tools/vscode)
+
+## Docs
+
+- [Backup systemd services](docs/systemd-backup-services.md)
