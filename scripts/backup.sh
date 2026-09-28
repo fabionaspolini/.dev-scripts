@@ -32,7 +32,7 @@ NC='\033[0m' # Sem cor
 
 # Adicione mais backups conforme necessário:
 declare -A BACKUPS=(
-    [home-user]="-C|$HOME|.bash_profile:.bashrc:.gitconfig:.npmrc:.zshrc:.profile:.zshrc:.p10k.zsh*"
+    [home.root]="-C|$HOME|.bash_profile:.bashrc:.gitconfig:.npmrc:.zshrc:.profile:.zshrc:.p10k.zsh*"
     [home.bashrc.d]="-C|$HOME/.bashrc.d|*.*"
     [home.claude]="-C|$HOME/.claude|*"
     [home.qwen]="-C|$HOME/.qwen|*"
