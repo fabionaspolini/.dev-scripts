@@ -39,7 +39,7 @@ NC='\033[0m' # No color
 # Add more backups as needed:
 declare -A BACKUPS=(
     [home.root]="-C|$HOME|.bash_profile:.bashrc:.gitconfig:.npmrc:.zshrc:.profile:.zshrc:.p10k.zsh*"
-    [home.bashrc.d]="-C|$HOME/.bashrc.d|*.*"
+    [home.bashrc.d]="-C|$HOME/.bashrc.d|*"
     [home.claude]="-C|$HOME/.claude|*"
     [home.qwen]="-C|$HOME/.qwen|*"
     [home.ssh]="-C|$HOME/.ssh|*"
@@ -148,8 +148,17 @@ expand_glob() {
     local results=()
 
     if [[ "$pattern" == *'*'* || "$pattern" == *'?'* || "$pattern" == *'['* ]]; then
+        local dotglob_was_off=false
+        shopt -q dotglob || dotglob_was_off=true
+        shopt -s dotglob  # Make '*' also match hidden files/dirs (.git, .idea, etc.)
+
         # shellcheck disable=SC2206
         results=($pattern)
+
+        if [ "$dotglob_was_off" = true ]; then
+            shopt -u dotglob
+        fi
+
         # Filter only existing ones
         local valid=()
         for r in "${results[@]}"; do
