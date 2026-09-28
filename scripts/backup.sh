@@ -5,7 +5,13 @@
 
 
 # Configurações globais
-DESTINO="$HOME/GoogleDrive/Backups/Automatic/$(hostname)"
+DESTINO_BASE="$HOME/GoogleDrive/Backups/Automatic/$(hostname)"
+DATA_EXECUCAO="$(date +%Y-%m-%d_%H-%M-%S)"
+DESTINO="$DESTINO_BASE/$DATA_EXECUCAO"
+
+# Política de rotação: mantém backups dos últimos N dias, mas nunca menos que MIN_PASTAS
+DIAS_RETENCAO=7
+MIN_PASTAS=10
 
 # Cores para mensagens
 VERDE='\033[0;32m'
@@ -75,6 +81,45 @@ criar_diretorio_destino() {
         fi
     fi
     return 0
+}
+
+# Rotacionar backups antigos: mantém as pastas dos últimos DIAS_RETENCAO dias,
+# garantindo um mínimo de MIN_PASTAS pastas mesmo que isso exceda o prazo
+rotacionar_backups() {
+    if [ ! -d "$DESTINO_BASE" ]; then
+        return 0
+    fi
+
+    local pastas=()
+    while IFS= read -r -d '' pasta; do
+        pastas+=("$pasta")
+    done < <(find "$DESTINO_BASE" -mindepth 1 -maxdepth 1 -type d -print0 | sort -zr)
+
+    local total=${#pastas[@]}
+    if [ "$total" -le "$MIN_PASTAS" ]; then
+        return 0
+    fi
+
+    local limite_data
+    limite_data=$(date -d "-${DIAS_RETENCAO} days" +%Y-%m-%d)
+
+    local i
+    for ((i = 0; i < total; i++)); do
+        # Sempre preservar as MIN_PASTAS mais recentes
+        if [ "$i" -lt "$MIN_PASTAS" ]; then
+            continue
+        fi
+
+        local pasta="${pastas[$i]}"
+        local nome_pasta
+        nome_pasta=$(basename "$pasta")
+        local data_pasta="${nome_pasta%%_*}"
+
+        if [[ "$data_pasta" < "$limite_data" ]]; then
+            exibir_msg "Removendo backup antigo: $nome_pasta"
+            rm -rf "$pasta"
+        fi
+    done
 }
 
 # Validar se path existe (suporta glob patterns)
@@ -268,6 +313,10 @@ main() {
     # Resumo final
     exibir_secao "RESUMO FINAL"
     exibir_msg "Total: $total_backups | Sucesso: $backups_sucesso | Falha: $backups_falha"
+
+    # Rotacionar backups antigos
+    exibir_secao "ROTACIONANDO BACKUPS ANTIGOS"
+    rotacionar_backups
 
     if [ $backups_falha -gt 0 ]; then
         return 1
