@@ -47,6 +47,7 @@ declare -A BACKUPS=(
     [home.local]="-C|$HOME/.local|share/plasma*:share/konsole"
     [home.kube]="-C|$HOME/.kube|config:*.config"
     [home.zsh]="-C|$HOME/.zsh|*"
+    [home.zshrc.d]="-C|$HOME/.zshrc.d|*"
 )
 
 # ============================================================================
