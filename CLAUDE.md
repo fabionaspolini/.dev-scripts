@@ -9,6 +9,7 @@ Personal collection of bash scripts for development environment setup (aliases, 
 ## Instructions for generated content
 
 - All code, comments, commit messages, and generated content must be written in English, regardless of the language used in the conversation with the user.
+- **Never commit explicit secrets** (API keys, tokens, passwords, private keys, connection strings with credentials, etc.) to any file in this repository, in any format — scripts, Markdown, settings, or otherwise. This repo is a personal dotfiles collection and may be public; secrets belong in environment variables, a local untracked file, or a secrets manager, referenced by name/path instead of value. If a task seems to require hardcoding a real secret, stop and flag it instead of writing it to a file.
 
 ## Structure
 
