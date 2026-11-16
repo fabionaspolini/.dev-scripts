@@ -40,4 +40,9 @@ snapper-create-snapshot() {
         --type single \
         --description "$description" \
         --cleanup-algorithm number
+
+    sudo snapper --config home create \
+        --type single \
+        --description "$description" \
+        --cleanup-algorithm number
 }
