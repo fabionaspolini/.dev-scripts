@@ -28,7 +28,13 @@ if [[ "$snapshot" == "true" ]]; then
         --type pre \
         --description "Pre-upgrade packages automatic" \
         --cleanup-algorithm number
-    echo "Snapshot created."
+    echo "Snapshot created for 'root'."
+
+    sudo snapper --config home create \
+        --type pre \
+        --description "Pre-upgrade packages automatic" \
+        --cleanup-algorithm number
+    echo "Snapshot created for 'home'."
 fi
 
 echo "Upgrading all packages..."
