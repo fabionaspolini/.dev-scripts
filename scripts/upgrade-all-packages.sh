@@ -2,9 +2,8 @@
 
 CURRENT_FOLDER="$(dirname -- "${BASH_SOURCE[0]}")"
 source "$CURRENT_FOLDER/utils/parse-args.sh"
-unset CURRENT_FOLDER
 
-local snapshot=""
+snapshot=""
 parse_args "$@"
 
 if [[ -z "$snapshot" ]]; then
@@ -59,4 +58,12 @@ flatpak update
 # sudo snap refresh
 
 echo "----------------------------------------"
+echo -e "\033[1mPress any key to upgrade \033[33mPlasma add-ons\033[0m\033[1m (widgets, wallpaper plugins, KWin scripts)...\033[0m"
+read -n1 -s
+"$CURRENT_FOLDER/upgrade-plasma-addons.sh" --yes
+
+echo "----------------------------------------"
 echo "Finishing package upgrades."
+echo -e "\033[33mNote:\033[0m other Plasma add-ons (icons, themes, cursors) can only be updated via Discover: \033[1mplasma-discover --mode update\033[0m"
+
+unset CURRENT_FOLDER
